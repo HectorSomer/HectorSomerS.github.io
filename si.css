@@ -1,0 +1,88 @@
+
+body{
+    margin: 0%;
+}
+header {
+    margin-bottom: 0%;
+}
+.contenedor{
+    background-image: url('public/pngtree-yellow-orang-and-blak-lines-background-image_354553.jpg');
+    margin-top: 0%;
+    height: 100%;
+    padding: 20px;
+}
+h1 {
+    color: #fff;
+}
+p {
+    color: #fff;
+}
+.Parte_de_arriba {
+    top: 0%;
+    width: 100%;
+    background-color: black;
+    height: 170px;
+}
+.display{
+    display: flex;
+}
+button{
+    margin: 40px;
+    font-size: 50px;
+}
+
+#Inicio {
+    text-align: center;
+}
+.imagen {
+    height: 250px;
+    width: 250px;
+}
+#Soyese {
+    text-align: center;
+}
+#Portafolio {
+    text-align: center;
+}
+#Pagina {
+    text-align: justify;
+}
+button {
+    font-size: 1rem;
+    padding: 0.8em 2em;
+    background-color: #000;
+    border: 3px solid yellow;
+    border-radius: 1em;
+    color: #fff;
+    font-weight: bolder;
+    transition: cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
+    box-shadow: -5px 5px 0px 0px yellow;
+  }
+  
+  button:hover {
+    transform: translate(5px, -5px);
+  }
+.imagendos {
+    left: 0% ;
+    height: 200px;
+    width: 200px;
+}
+.imagentres {
+    float: right;
+    height: 200px;
+    width: 200px;
+}
+ul{
+    color: #fff;
+}
+footer {
+    color: white;
+}
+.imagenes {
+    width: 15%;
+    height: 15%;
+}
+.pie {
+    background-color: red;
+    text-align: center;
+}

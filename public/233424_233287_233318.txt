@@ -1,0 +1,167 @@
+#include <iostream>
+
+using namespace std;
+
+void ingresar(int limite, int lista[]){
+	for(int i=0; i<limite; i++){
+		cout << "Ingrese el valor de la posicion " << i+1 << ": ";
+		cin >> lista[i];
+	}
+}
+void bubble(int limite, int lista[]) {
+    	bool b;	
+    	int temporal = 0;
+    	int cambios = 0;
+    	int iteraciones = 0;
+	do { 
+		b = false;
+		cambios=cambios+1;
+		for(int i=0; i<limite-1; i++) { 
+			if(lista[i]>lista[i+1]) {
+				b = true;
+				iteraciones=iteraciones+1;
+				int temporal = lista[i];
+				lista[i] = lista[i+1];
+				lista[i+1] = temporal;
+			} 
+		}
+		
+		for(int c=0; c<limite; c++) {
+			cout << lista[c] << "\t";
+		}
+		cout << endl;
+	} while(b == true);
+	cout << "El numero de veces que se hizo el primero ciclo fue "<< cambios;
+	cout <<endl;
+	cout <<"El numero de veces que se hizo el segundo ciclo fue "<< iteraciones;
+	cout << endl;
+}
+
+void insertion(int limite, int lista[]){	
+int repeticion=0;
+int cambios=0;
+	for(int i=1; i<limite; i++) {
+		int it = i;
+		repeticion=repeticion+1;
+		for(int j=i-1; j>=0; j--) {
+			if(lista[it] < lista[j]) {
+				int nt = lista[it];
+				lista[it] = lista[j];
+				lista[j] = nt;
+				cambios=cambios+1;
+				it = j;
+			} else {
+				break;
+			}
+		}
+		
+		for(int k=0; k<limite; k++) {
+			cout << lista[k] << "\t";
+		}
+		cout << "\n";
+	}
+	cout << "El número de ciclos fue "<< repeticion<<endl; 
+	cout <<"El número de iteraciones fue " << cambios<< endl;
+}
+
+void selectionSort(int limite, int lista[]){
+	
+	cout<<endl<<"Usted ha eligido el método Selection Sort: "
+	<<endl<<"A continuación los datos a ordenar: "<<endl;
+	int numeroTemporal = 0;
+	int posicionNumeroMenor = 0;
+	int contadorFori=0;
+	int contadorForj=0;
+	bool b;
+	for(int i=0; i<limite; i++) {
+		b=false;
+		contadorFori= contadorFori + 1;
+		posicionNumeroMenor = i;
+		for(int j=i+1; j<limite; j++) {
+			contadorForj= contadorForj + 1;
+			if(lista[j] < lista[posicionNumeroMenor]) {
+				posicionNumeroMenor = j;
+				b=true;
+			}
+
+			}
+		numeroTemporal = lista[posicionNumeroMenor];
+		lista[posicionNumeroMenor] = lista[i];
+		lista[i] = numeroTemporal;
+				if (b==false) {
+				break;
+			}
+		for(int xd=0; xd<limite; xd++) {
+			cout << lista[xd] << "\t";
+		}
+		cout << "\n";
+	}
+		cout<<"En el metodo Selection Sort el numero de iteraciones del primer ciclo fue: "<<contadorFori<<endl;
+		cout<<"El segundo for utilizo: "<<contadorForj<<endl;
+}
+int main(int argc, char** argv) {
+	int opcion=0;
+	int cantidad=0;
+	
+	do{
+		
+		cout << "---Menu---" << endl;
+		cout << "1.Bubble Sort" << endl;
+		cout << "2.Selection Sort" << endl;
+		cout << "3.Insertion Sort" << endl;
+		cout << "4.Salir" << endl;
+			cout << "Ingrese la opcion que desee realizar: ";
+	     	cin >> opcion;
+		int arreglo[cantidad];
+		switch(opcion){
+			case 1:{
+				cout<<endl;
+		   cout << "Ingrese la cantidad de datos de su arreglo: "; 
+		   cin >> cantidad;
+		   ingresar(cantidad, arreglo);
+		   bubble(cantidad, arreglo);
+				break;
+			}
+			case 2:{
+				cout<<endl;
+		   cout << "Ingrese la cantidad de datos de su arreglo: "; 
+		   cin >> cantidad;
+
+		   ingresar(cantidad, arreglo);
+				selectionSort(cantidad, arreglo);
+				cout << "La lista ordenada es:" << endl;
+				for(int k=0; k<cantidad; k++){
+					cout << arreglo[k] << " \t";
+				}
+				cout<<endl<<endl;
+				
+				break;
+			}
+
+			case 3:{
+				cout<<endl;
+		   cout << "Ingrese la cantidad de datos de su arreglo: "; 
+		   cin >> cantidad;
+		   ingresar(cantidad, arreglo);
+		   insertion(cantidad, arreglo);
+				cout << "La lista ordenada es:" << endl;
+				for(int i=0; i<cantidad; i++){
+					cout << arreglo[i] << "  ";
+				}
+				cout << endl;
+				break;
+			}
+			case 4:{
+				cout << "Usted ha salido.";
+				break;
+			}
+			default:{
+				cout << "Ingrese un valor válido.";
+				break;
+			}
+		}
+		
+	}while(opcion!=4);
+	
+	return 0;
+}
